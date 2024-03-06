@@ -6,6 +6,7 @@
   .forget_top {
     margin-top: 5%;
   }
+ 
   .forget_top span {
     color: #434343;
     font-family: Poppins;
@@ -32,7 +33,8 @@
     border-radius: 8px;
     border: 1px solid #b8b8b8;
   }
-  .forget_input_fields input::placeholder {
+  .forget_input_fields input::placeholder,
+  .forget_input_fields input:focus  {
     padding-left: 4%;
     color: #7b7b7b;
     display: flex;
@@ -79,5 +81,67 @@ font-size: 16px;
 font-style: normal;
 font-weight: 500;
 line-height: 24px;
+  }
+  .otp_form,
+  .confirm_otp_form {
+    width: 86%;
+    padding: 7%;
+  }
+  .otp_top,
+  .confirm_otp_top{
+    margin-top: 5%;
+  }
+  .otp_top span,
+  .confirm_otp_top span {
+    color: #434343;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  .otp_fiels input,
+  .confirm_otp_fiels input {
+    width: 100%;
+    height: 60px;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    border: 1px solid #b8b8b8;
+  }
+  .otp_fiels input::placeholder,
+  .confirm_otp_fiels input::placeholder
+  .confirm_otp_fiels input:focus,
+  .confirm_otp_fiels input:focus {
+    padding-left: 4%;
+    color: #7b7b7b;
+    display: flex;
+    align-items: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 23px;
+  }
+  .otp_button,
+  .confirm_otp_button {
+    margin-top: 12%;
+  }
+  .otp_button button,
+  .confirm_otp_button button {
+    width: 100%;
+    height: 54px;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 23px;
+    border-radius: 8px;
+    background: #d00d4f;
   }
 }

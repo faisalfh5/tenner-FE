@@ -25,7 +25,8 @@
     border-radius: 8px;
     border: 1px solid #b8b8b8;
   }
-  .signin_input_fields input::placeholder {
+  .signin_input_fields input::placeholder,
+  .signin_input_fields input:focus {
     padding-left: 4%;
     color: #7b7b7b;
     display: flex;

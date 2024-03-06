@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import api from "../../api";
 import BackArrow from "../icons/Backicon";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Forget = () => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    email: "",
+  });
+  console.log("formData", formData.email)
+
+  const handleForgotPassword = async (e) => {
+    e.preventDefault();
+
+    api("post", "/forgot_password", formData)
+      .then((response) => {
+        if (response.status === 200) {
+          navigate("/Otpsec");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
   return (
     <>
       <div className="forget_form">
@@ -16,10 +36,18 @@ const Forget = () => {
           </p>
         </div>
         <div className="forget_input_fields">
-          <input type="text" placeholder="Enter Your password" />
+          <input
+            type="email"
+            placeholder="Enter Your password"
+            name="email"
+            value={formData.email}
+            onChange={(e) =>
+              setFormData({ ...formData, [e.target.name]: e.target.value})
+            }
+          />
         </div>
         <div className="forget_button">
-          <button>SignIn</button>
+          <button onClick={handleForgotPassword}>Forgot Password</button>
         </div>
 
         <div className="forget_form_end">
