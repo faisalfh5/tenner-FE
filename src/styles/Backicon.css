@@ -1,0 +1,13 @@
+@media only screen and (max-width: 450px) {
+.back_icon{
+  width: 41px;
+  height: 41px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid var(--Border, #E8ECF4);
+  background: var(--White, #FFF);;
+}
+}

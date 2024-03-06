@@ -1,0 +1,103 @@
+@media only screen and (max-width: 450px) {
+  .winner {
+    width: 90%;
+    height: 490px;
+    margin-left: 5%;
+    border-radius: 18px;
+    background: #fff;
+    z-index: 1000;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+  }
+  .winner_top {
+    width: 90%;
+    margin-top: 6%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+  }
+  .winner_heading {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .winner_heading h6 {
+    width: 80%;
+    display: flex;
+    padding-top: 10%;
+    justify-content: flex-end;
+    color: #d00d4f;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+  }
+  .winner_cross_icon {
+    width: 2%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .winner_paragraph {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 10%;
+  }
+  .winner_paragraph p {
+    color: #434343;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+  .winner_img {
+    display: flex;
+    justify-content: center;
+  }
+  .winner_span {
+    margin-top: 4%;
+    color: #434343;
+
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+  .winner_span span {
+    display: flex;
+    justify-content: center;
+  }
+  .winner_button {
+    display: flex;
+    margin-top: 4%;
+    justify-content: center;
+  }
+  .winner_button button {
+    display: flex;
+    width: 25%;
+    height: 40px;
+    margin-top: 4%;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border-radius: 8px;
+    background: #d00d4f;
+    border: none;
+    color: #fff;
+
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21.806px;
+  }
+}

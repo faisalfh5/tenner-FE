@@ -1,0 +1,145 @@
+
+@media only screen and (max-width: 450px) {
+  .side_bar_backgroundss {
+    width: 100%;
+    background: rgba(217, 217, 217, 0.51);
+    backdrop-filter: blur(0.5px);
+    left: 0;
+    z-index: 10;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+  }
+.custom-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #efefef;
+    border-radius: 32px;
+    z-index: 10000;
+    /* overflow: hidden; */
+    z-index: 10000;
+    bottom: 120px !important;
+
+  }
+  
+  .custom-img {
+    width: 100%;
+    height: 100vh;
+    /* left: -47px; */
+    /* top:0; */
+    position: absolute;
+  }
+  
+  .gradient-overlay {
+    width: 100%;
+    height: 121px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.06) 100%);
+  }
+  
+  .progress-line {
+    width: 90%;
+    height: 3px;
+    left: 20px;
+    top: 33px;
+    position: absolute;
+  }
+  
+  .progress-bar-background {
+    width: 100%;
+    height: 3px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.40);
+    border-radius: 2.17px;
+  }
+  
+  .progress-bar {
+    width:50%;
+    height: 3px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: #d00d4f;
+    border-radius: 2.17px;
+  }
+  
+  .logo-container {
+    width: 350px;
+    left: 20px;
+    top: 49px;
+    position: absolute;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+
+  }
+  
+  .avatar-container {
+    width: 50%;
+    height: 48px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .reel_avatar {
+    width: 48px;
+    height: 48px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 0px !important;
+  }
+  
+  .inner-avatar {
+    width: 44.63px;
+    height: 44.63px;
+    left: 1.68px;
+    top: 1.68px;
+    position: absolute;
+    background: #d9d9d9;
+    border-radius: 9999px;
+  }
+  
+  .avatar-image {
+    width: 50.20px;
+    height: 50.20px;
+    /* left: -9.28px; */
+    border-radius: 50%;
+    /* top: -9.28px; */
+    top: 4%;
+    left: 5%;
+    position: absolute;
+  }
+  
+  .outer-avatar {
+    width: 50px;
+    height: 50px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    border-radius: 9999px;
+    border: 3px #d00d4f solid;
+  }
+  
+  .title {
+    color: white;
+    font-size: 13px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+  
+  .close-button {
+    width: 21.31px;
+    height: 21.33px;
+    position: relative;
+  }
+}
+  

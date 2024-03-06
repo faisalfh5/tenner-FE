@@ -1,0 +1,61 @@
+@media only screen and (max-width: 450px) {
+.dinner{
+    width: 90%;
+    padding: 5%;
+}
+.dinner_heading{
+    display: flex;
+width: 351px;
+flex-direction: column;
+align-items: center;
+gap: 20px;
+}
+.dinner_heading span{
+    color: #26251C;
+    margin-top: 5%;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
+.dinner_heading h5 span{
+    color: #D00D4F;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+}
+.dinner_box{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+.dinner_box1,
+.dinner_box2
+{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+   flex-direction: column;
+    width: 47%;
+    height: 164px;
+    flex-shrink: 0;   
+    border-radius: 17.34px;
+    border: 1px solid #D00D4F; 
+    background: #FFF;
+}
+.dinner_box1 span,
+.dinner_box2 span{
+    padding-top: 10px;
+
+color: #D00D4F;
+
+font-family: Poppins;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 22px; 
+}
+}

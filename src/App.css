@@ -1,0 +1,5 @@
+@media only screen and (max-width: 450px) {
+  .linkRedirect {
+    text-decoration: none; /* Remove underline */
+  }
+}

@@ -1,0 +1,120 @@
+@media only screen and (max-width: 450px) {
+    .map_popup {
+        width: 90%;
+        height: 500px;
+        margin-left: 5%;
+        border-radius: 18px;
+        background: #fff;
+        z-index: 1000;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        bottom: 12%;
+      }
+      .map_cross_icon{
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 5%;
+        margin-top: 4%;
+        margin-right: 4%;
+      }
+    .map_img {
+
+     width: 100%;
+     height: 255px;
+   
+}
+.map_img img{
+
+    width: 100%;
+    height: 100%;
+
+}
+.map_div{
+    width: 100%;
+    height: 100%;
+    padding-top: 33.71px;
+    padding-bottom: 32.01px;
+    padding-left: 32px;
+    padding-right: 32px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: inline-flex;
+}
+/* First container */
+.map_container {
+    height: 83px;
+    padding-bottom: 9.36px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8.07px;
+    display: flex;
+    margin-left: 2%;
+    margin-top: 3%;
+  }
+  
+  /* .map_container {
+    align-self: stretch;
+    display: inline-flex;
+  } */
+  
+  /* Inner divs of the first container */
+ 
+  .map_inner-div {
+    font-family: 'Poppins';
+    height: 21.26px;
+    padding-bottom: 0.26px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  /* Second container */
+  .second-container {
+    align-self: stretch;
+    height: 44.88px;
+    padding-top: 2px;
+    padding-bottom: 0.28px;
+    padding-right: 118.44px;
+    flex-direction: column;
+    font-family: 'Poppins';
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 6.60px;
+    margin-left: 2%;
+    display: flex;
+  }
+  
+  /* Inner divs of the second container */
+  .second-container .inner-div {
+    color: #434343;
+    font-family: 'Poppins';
+    word-wrap: break-word;
+  }
+  
+  .second-container .titles {
+    font-size: 12.10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 13.80px;
+    font-family: 'Poppins';
+    letter-spacing: 1;
+  }
+  
+  .inner-div .phone {
+    color: #434343;
+    font-size: 13.80px;
+    font-weight: 700;
+    font-family: 'Poppins';
+    line-height: 21.67px;
+  }
+  
+  .second-container .phone-number {
+    color: #434343;
+    font-size: 13.80px;
+    font-weight: 400;
+    line-height: 21.67px;
+  }
+}

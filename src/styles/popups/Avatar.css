@@ -1,0 +1,68 @@
+@media only screen and (max-width: 450px) {
+  .avatar {
+    width: 90%;
+    height: 250px;
+    flex-shrink: 0;
+    margin-left: 5%;
+    margin-top: 45%;
+    border-radius: 18px;
+    background: #fff;
+    z-index: 1000;
+    position: absolute;
+    
+    
+  }
+
+  .avatar_heading {
+    width: 90%;
+    padding: 6% 0 0 5%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .avatar_heading h6 {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    color: #d00d4f;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+  }
+  .avatar_cross_icon {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .avatar-imgs {
+    width: 86%;
+    padding-left: 7%;
+    display: flex;
+    margin-top: 5%;
+    justify-content: space-between;
+  }
+  .avatar_button {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+  }
+  .avatar_button button {
+    display: flex;
+    padding: 8px 34px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    background: #d00d4f;
+    color: #fff;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+  }
+}

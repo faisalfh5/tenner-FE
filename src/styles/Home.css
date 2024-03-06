@@ -1,0 +1,55 @@
+@media only screen and (max-width: 450px) {
+  .Homepage {
+    width: 100%;
+    height: 100%;
+    background-color: #efefef;
+    
+  }
+  .home_inner {
+   display: flex;
+   align-items: center;
+   width: 90%;
+    padding: 5%;
+  }
+  .home_top{
+    width: 50%;
+  }
+  .home_logo { 
+    display: flex;
+    flex-direction: column;
+  }
+  .log_top {
+    display: flex;
+    gap: 3%;
+  }
+
+  .logo_down {
+    display: flex;
+    flex-direction: column
+  }
+  .logo_down span {
+    color: #000;
+    padding-left: 15%;
+    font-family: Poppins;
+    font-size: 6.814px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 10.708px; 
+  }
+  .home_top_icon{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end; 
+    width: 50%;
+    gap: 15%;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .Homepage {
+    width: 100% ;
+    height: 100%;
+    background-color: #efefef;
+    
+  }
+}
+

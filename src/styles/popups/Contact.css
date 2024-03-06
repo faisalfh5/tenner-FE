@@ -1,0 +1,127 @@
+@media only screen and (max-width: 450px) {
+  .contact {
+    width: 90%;
+    height: 561px;
+    margin-left: 5%;
+    border-radius: 18px;
+    background: #fff;
+    z-index: 1000;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 10%;
+  }
+  .contact_top {
+    width: 90%;
+    margin-top: 6%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+  }
+  .contact_heading {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .contact_heading h6 {
+    width: 60%;
+    display: flex;
+    justify-content: flex-end;
+    color: #d00d4f;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  .contact_cross_icon {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .contact_paragraph {
+    width: 100%;
+  }
+  .contact_paragraph p {
+    color: #434343;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+  .contact_textatrea {
+    width: 90%;
+    padding-left: 5%;
+  }
+  .contact_textatrea textarea {
+    width: 100%;
+    height: 85px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    border: 1px solid #dfdfdf;
+    background: #fff;
+  }
+  .contact_textatrea textarea::placeholder {
+    color: #7b7b7b;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    padding-left: 5%;
+  }
+  .contact_button {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+  }
+  .contact_button button {
+    width: 30%;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    gap: 10px;
+    color: var(--White, #fff);
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border-radius: 10px;
+    background: #d00d4f;
+  }
+  .contact_profile_detail{
+    width: 90%;
+    display: flex;
+    margin-left: 5%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 7%;
+  }
+  .contact_profile_name span,
+  .contact_profile_number span,
+  .contact_profile_email span{
+    color: var(--Black-Chocolate, #26251C);
+font-family: Poppins;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+  }
+  .contact_profile_number span,
+  .contact_profile_email span
+  {
+   display: flex;
+   width: 100%;
+   align-items: center;
+   gap: 4%;
+  }
+}
