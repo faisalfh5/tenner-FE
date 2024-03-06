@@ -24,13 +24,16 @@ const Profile = ({ setMenu }) => {
     setAvatar(!avatar);
     document.body.style.overflow = "hidden";
   };
+  console.log(
+    "🚀 ~ Profile ~ userData?.user_profile_path + userData?.data?.photo:",
+    userData?.user_profile_path + userData?.data?.photo
+  );
   const [term, setTerm] = useState(false);
   const [contact, setContact] = useState(false);
   const handleContact = () => {
     setContact(!avatar);
     document.body.style.overflow = "hidden";
   };
-
   const handleTerm = async () => {
     // Handle form submission logic here
     await api("get", "/page/term_conditions")

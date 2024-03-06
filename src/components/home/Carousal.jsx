@@ -14,34 +14,6 @@ import Map from "../Map";
 import Reel from "../Reel";
 import { Store } from "../../StoreContext";
 
-// const slidesData = [
-//   {
-//     id: 1,
-
-//     logoTopSrc: Logotop,
-//     companyName: "Fauget Catering",
-//     heading: "Sandwich combo",
-//     originalPrice: "$18",
-//     discountedPrice: "$12",
-//     detail:
-//       "Come in today and get a smoothie plus sandwch combo in 10% off for just $10, which resular price is $12",
-//     buttonText: "Redeem Now",
-//     icon: location,
-//   },
-//   {
-//     id: 2,
-//     logoTopSrc: Kitchen,
-//     companyName: "Kitchen Cafe",
-//     heading: "Pizza Buy 1 Get 1",
-//     originalPrice: "$12",
-//     discountedPrice: "$8",
-//     detail:
-//       "Come in today and get a smoothie plus sandwich combo at 10% off for just $10, which regular price is $12",
-//     buttonText: "Redeem Now",
-//     icon: location,
-//   },
-// ];
-
 const settings = {
   dots: true,
 
@@ -68,9 +40,15 @@ const Carousal = ({ reqData, setReqData }) => {
   const [map, setMap] = useState(false);
   const { user } = Store();
   const [winner, setWinner] = useState(false);
+  const [reelMedia, setReelMedia] = useState({
+    media: null,
+    logo: null,
+    mediaType: null,
+  });
   const [sliderData, setSliderData] = useState([]);
   console.log("🚀 ~ Carousal ~ sliderData:", sliderData);
   const [imagepath, setImagePath] = useState("");
+  const [mediaPath, setMediaPath] = useState("");
 
   const handleWinner = () => {
     setWinner(!winner);
@@ -80,7 +58,8 @@ const Carousal = ({ reqData, setReqData }) => {
     setMap(!map);
     document.body.style.overflow = "hidden";
   };
-  const handleReel = () => {
+  const handleReel = (media, logo, url) => {
+    setReelMedia({ media, logo, url });
     setReel(!reel);
     document.body.style.overflow = "hidden";
   };
@@ -101,6 +80,7 @@ const Carousal = ({ reqData, setReqData }) => {
       .then((response) => {
         console.log("Success Data:", response.data);
         setImagePath(response?.data?.r_logo_path);
+        setMediaPath(response?.data?.media_content_path);
         setSliderData(response?.data?.data);
       })
       .catch((error) => {
@@ -120,7 +100,7 @@ const Carousal = ({ reqData, setReqData }) => {
           }}
         />
       )}
-      {reel && <Reel setReel={setReel} />}
+      {reel && <Reel reelMedia={reelMedia} setReel={setReel} />}
       {reel && (
         <div
           className="side_bar_backgroundss"
@@ -146,12 +126,21 @@ const Carousal = ({ reqData, setReqData }) => {
             {sliderData.map((slide) => (
               <div className="slider_box" key={slide.id}>
                 <div className="Slider_logo">
-                  <div className="logo_top" onClick={handleReel}>
+                  <div
+                    className="logo_top"
+                    onClick={() =>
+                      handleReel(
+                        mediaPath + slide?.media_content,
+                        imagepath + slide?.r_logo,
+                        slide?.media_type
+                      )
+                    }
+                  >
                     <img src={imagepath + slide?.r_logo} alt="" />
                   </div>
                   <div className="location">
-                      <img src={location} alt="" onClick={handleMap} />
-                    </div>
+                    <img src={location} alt="" onClick={handleMap} />
+                  </div>
                 </div>
                 <div className="slide_head">
                   <span>{slide?.rest_title}</span>
