@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 // import Kitchen from "../../images/kitchen.png";
 // import Artisan from "../../images/Artisan.png";
 // import Mimal from "../../images/Mimal.png";
+import { toast } from "react-toastify";
+
 import Love from "../../images/love.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -46,7 +48,6 @@ const Carousal = ({ reqData, setReqData }) => {
     mediaType: null,
   });
   const [sliderData, setSliderData] = useState([]);
-  console.log("🚀 ~ Carousal ~ sliderData:", sliderData);
   const [imagepath, setImagePath] = useState("");
   const [mediaPath, setMediaPath] = useState("");
 
@@ -64,11 +65,11 @@ const Carousal = ({ reqData, setReqData }) => {
     document.body.style.overflow = "hidden";
   };
 
-  const handleAddFavorite = (id) => {
-    api("post", "/favourite/store", user.id)
+  const handleAddFavorite = (eventId) => {
+    api("post", "/favourite/store", { user_id: user.id, event_id: eventId })
       .then((response) => {
         console.log("Added to favorites:", response.data);
-        alert("Event add to your favorite list");
+        toast.success("Event add to your favorite list");
       })
       .catch((error) => {
         console.error("Error adding to favorites:", error);
@@ -159,7 +160,10 @@ const Carousal = ({ reqData, setReqData }) => {
                   <p>{slide?.description}</p>
                 </div>
                 <div className="slide_icon_button">
-                  <div className="love_icon" onClick={handleAddFavorite}>
+                  <div
+                    className="love_icon"
+                    onClick={() => handleAddFavorite(slide.id)}
+                  >
                     <img src={Love} alt="" />
                   </div>
                   <div className="slidebutton">

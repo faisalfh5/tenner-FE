@@ -12,10 +12,8 @@ const Avatar = ({ setAvatar }) => {
   const { user } = Store();
   console.log("🚀 ~ Avatar ~ user:", user.id);
   const avatarImages = [Avatar1, Avatar2, Avatar3];
-  const formData = new FormData();
 
   const [selectedImageFilename, setSelectedImageFilename] = useState(null);
-  console.log("🚀 ~ Avatar ~ selectedImageFilename:", selectedImageFilename);
 
   const handleImageChange = (imagePath) => {
     const parts = imagePath.split(".");
@@ -23,14 +21,20 @@ const Avatar = ({ setAvatar }) => {
     setSelectedImageFilename(uniqueIdentifier);
   };
 
-  const handleSubmit = () => {
-    const formData = new FormData(); // Create a new FormData object
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
 
-    // Append user_id and photo parameters to the formData object
+    console.log("🚀 ~ handleSubmit ~ user.id:", user.id);
+
+    console.log("🚀 ~ Avatar ~ selectedImageFilename:", selectedImageFilename);
+
     formData.append("user_id", user.id);
+
     formData.append("photo", selectedImageFilename);
 
     console.log("🚀 ~ handleSubmit ~ formData:", formData);
+
     api("post", "/profile/update_profile", formData)
       .then((response) => {
         if (response.status === 200) {

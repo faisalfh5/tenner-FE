@@ -1,18 +1,43 @@
 import React from "react";
 import { GoogleLogin } from "react-google-login";
 import FacebookLogin from "react-facebook-login";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import Google from "../../images/gmail.png";
 import Facebook from "../../images/Facebook.png";
+import api from "../../api";
 
 const Links = () => {
+  const nav = useNavigate();
   const responseGoogle = (response) => {
-    console.log(response);
-    console.log(response.tokenId); // This is the provider ID
+    // if (response) {
+    //   toast.success("You have successfully");
+    //   nav("/home");
+    // }
   };
 
   const responseFacebook = (response) => {
-    console.log(response);
-    console.log(response.tokenId);
+    console.log("facebook response", response);
+    console.log("fb token", response.tokenId);
+
+    api("post", "/login")
+      .then((response) => {
+        console.log("🚀 ~ .then ~ response:", response);
+        // Handle successful response here
+
+        if (response.status === 200) {
+          toast.success("You have successfully logged in");
+          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("user", response?.data.data);
+
+          nav("/home");
+        }
+      })
+      .catch((error) => {
+        // Handle error here
+        console.error("Error:", error);
+        return toast.error("Incorrect Password");
+      });
   };
 
   const buttonStyle = {
@@ -73,7 +98,7 @@ const Links = () => {
       </div>
       <div className="social_buttons">
         <GoogleLogin
-          clientId="7274686233-23vgo7dqvnna6b8pr4rt4hhf9p2nednm.apps.googleusercontent.com"
+          clientId="7274686233-aagcdodn56aa0bs169mnq1cuf031gt34.apps.googleusercontent.com"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
           cookiePolicy={"single_host_origin"}
@@ -82,9 +107,9 @@ const Links = () => {
           )}
         />
         <FacebookLogin
-          appId="YOUR_FACEBOOK_APP_ID"
+          appId="313958924639588"
           autoLoad={false}
-          fields="name,email,picture"
+          fields="name,picture"
           callback={responseFacebook}
           render={(renderProps) => (
             <FacebookButton onClick={renderProps.onClick} />

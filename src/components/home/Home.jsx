@@ -16,7 +16,10 @@ const Home = () => {
     user_id: 2,
     event_id: 3,
   });
+
   const [filters, setFilters] = useState(false);
+  const [filterization, setFilterization] = useState(false);
+  console.log("🚀 ~ Home ~ filterization:", filterization);
   const handleMenu = () => {
     setMenu(!menu);
     document.body.style.overflow = "hidden";
@@ -39,7 +42,9 @@ const Home = () => {
         />
       )}
 
-      {filters && <Filters setFilters={setFilters} />}
+      {filters && (
+        <Filters setFilterization={setFilterization} setFilters={setFilters} />
+      )}
       {filters && (
         <div
           onClick={() => {

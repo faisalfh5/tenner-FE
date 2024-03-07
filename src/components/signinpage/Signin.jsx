@@ -8,12 +8,9 @@ import api from "../../api";
 import { UpdateStore } from "../../StoreContext";
 import "@fortawesome/fontawesome-free/css/all.css";
 
-
-
 const Signin = () => {
   const navigate = useNavigate();
   const updateStore = UpdateStore();
- 
 
   const [formData, setFormData] = useState({
     email: "",
