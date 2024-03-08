@@ -7,37 +7,38 @@ import tennerRoutes from "./routes/route";
 import Signin from "./components/signinpage/Signin";
 import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 import "react-toastify/dist/ReactToastify.css";
 // import { UpdateStore, setStore } from "./StoreContext";
 function App() {
   const { pathname } = useLocation();
-
+  console.log("🚀 ~ App ~ pathname:", pathname);
+  const nav = useNavigate();
   // Function can resolve/reject or return true/false
   const checkAuth = () => {
     const token = localStorage.getItem("token");
-
     if (token) {
       return { success: true, role: "user" };
     } else {
+      console.log("got here ?");
+      nav("/login");
       return false;
     }
   };
 
-  // const addUser = () => {
-  //   const user = localStorage.getItem("user");
-  //   setStore((prevState) => ({
-  //     ...prevState,
-  //     loggedIn: true,
-  //     user: user ? JSON.parse(user) : {}, // Parse user data if it exists
-  //   }));
-  // };
-
   useEffect(() => {
-    // addUser();
+    // const userData = Store();
+    // localStorage.setItem("user", JSON.stringify(userData));
+    // const consoleuserData = localStorage.getItem("user");
+    // console.log(
+    //   "🚀 ~ checkAuth ~ consoleuserData:",
+    //   JSON.parse(consoleuserData)
+    // );
+    checkAuth();
   }, [pathname]);
   {
-    pathname !== "/" && pathname !== "/login" ? <Signin /> : "";
+    pathname !== "/" && pathname !== "/login" && <Signin />;
   }
 
   return (

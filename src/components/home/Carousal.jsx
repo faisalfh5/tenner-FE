@@ -37,7 +37,7 @@ const settings = {
   ],
 };
 
-const Carousal = ({ reqData, setReqData }) => {
+const Carousal = ({ sliderData, setSliderData }) => {
   const [reel, setReel] = useState(false);
   const [map, setMap] = useState(false);
   const { user } = Store();
@@ -47,7 +47,6 @@ const Carousal = ({ reqData, setReqData }) => {
     logo: null,
     mediaType: null,
   });
-  const [sliderData, setSliderData] = useState([]);
   const [imagepath, setImagePath] = useState("");
   const [mediaPath, setMediaPath] = useState("");
 

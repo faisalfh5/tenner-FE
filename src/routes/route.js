@@ -10,13 +10,13 @@ import Signin from "../components/signinpage/Signin";
 import Links from "../components/common/Links";
 import Mainpage from "../components/mainpage/Main";
 import Signup from "../components/signuppage/Signup";
-import Otpsec from '../components/forget/Otpsec'
-import Confirmpassword from '../components/forget/Confirmpassword'
+import Otpsec from "../components/forget/Otpsec";
+import Confirmpassword from "../components/forget/Confirmpassword";
 
 const tennerRoutes = [
   {
     path: "/",
-    navigate: "/main",
+    navigate: "/login",
   },
   {
     path: "/login",
