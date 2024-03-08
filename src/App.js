@@ -22,7 +22,25 @@ function App() {
       return { success: true, role: "user" };
     } else {
       console.log("got here ?");
-      nav("/login");
+      if(pathname === "/login"){
+
+        nav("/login");
+      }
+      else if(pathname === "/"){
+        nav("/login");
+      }
+      else if(pathname === "/singup"){
+
+        nav("/singup");
+      }
+      else if(pathname === "/forget"){
+
+        nav("/forget");
+      }
+      else if(pathname !== "/forget" || pathname !== "/singup" || pathname !== "/login" || pathname !== "/" ){
+
+        nav("/login");
+      }
       return false;
     }
   };
