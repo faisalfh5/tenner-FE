@@ -1,16 +1,35 @@
-import React from "react";
-import image from "../images/image1.png";
+import React, { useState } from "react";
+// import image from "../images/image1.png";
 
 import Cross from "../images/cross.png";
 const Reel = ({ setReel, reelMedia }) => {
+  const [progressComplete, setProgressComplete] = useState(false);
+
+  const handleAnimationEnd = () => {
+    // Update state to indicate that the progress is complete
+    setProgressComplete(true);
+    setReel(false);
+    document.body.style.overflow = "visible";
+  };
+  
   return (
     <>
       <div className="custom-container">
-        <img className="custom-img" src={reelMedia.media} alt="Placeholder" />
+        
+      {progressComplete ? null : (
+        <img
+          className="custom-img"
+          src={reelMedia.media}
+          alt="Placeholder"
+        />
+      )}
         <div className="gradient-overlay" />
         <div className="progress-line">
           <div className="progress-bar-background" />
-          <div className="progress-bar" />
+          <div
+          className="progress-bar"
+          onAnimationEnd={handleAnimationEnd}
+        ></div>
         </div>
         <div className="logo-container">
           <div className="avatar-container">

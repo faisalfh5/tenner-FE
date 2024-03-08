@@ -1,7 +1,7 @@
 @media only screen and (max-width: 450px) {
   .Homepage {
     width: 100%;
-    height: 100%;
+    height: auto;
     background-color: #efefef;
     
   }

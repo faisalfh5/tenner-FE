@@ -152,7 +152,25 @@ const Carousal = ({ reqData, setReqData }) => {
                   </div>
                   <div className="Price">
                     <p>
-                      <span>{slide?.old_price}</span> {slide?.new_price}
+                      <span style={{ display: "flex" }}>
+                        {slide?.new_price !== null &&
+                        slide?.old_price !== null ? (
+                          <>
+                            <span className="old_price">{slide.new_price}$</span>
+                            <span >{slide.old_price}$</span>
+                          </>
+                        ) : slide?.new_price !== null ? (
+                          <span>{slide.new_price}</span>
+                        ) : slide?.old_price !== null ? (
+                          <span>{slide.old_price}</span>
+                        ) : slide?.discount_amount !== null ? (
+                          <span>{slide.discount_amount}%</span>
+                        ) : slide?.offer_type !== null ? (
+                          <span>{slide.offer_type}</span>
+                        ) : (
+                          <span>No Price Available</span>
+                        )}
+                      </span>
                     </p>
                   </div>
                 </div>

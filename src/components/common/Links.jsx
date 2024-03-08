@@ -107,10 +107,12 @@ const Links = () => {
           )}
         />
         <FacebookLogin
+
           appId="313958924639588"
           autoLoad={false}
           fields="name,picture"
           callback={responseFacebook}
+          icon="fa-facebook"
           render={(renderProps) => (
             <FacebookButton onClick={renderProps.onClick} />
           )}

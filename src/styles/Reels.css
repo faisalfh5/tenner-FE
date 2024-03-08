@@ -1,5 +1,6 @@
 
 @media only screen and (max-width: 450px) {
+
   .side_bar_backgroundss {
     width: 100%;
     background: rgba(217, 217, 217, 0.51);
@@ -17,8 +18,6 @@
     background: #efefef;
     border-radius: 32px;
     z-index: 10000;
-    /* overflow: hidden; */
-    z-index: 10000;
     bottom: 120px !important;
 
   }
@@ -26,8 +25,6 @@
   .custom-img {
     width: 100%;
     height: 100vh;
-    /* left: -47px; */
-    /* top:0; */
     position: absolute;
   }
   
@@ -59,14 +56,26 @@
   }
   
   .progress-bar {
-    width:50%;
+    width: 0; 
     height: 3px;
     left: 0;
     top: 0;
     position: absolute;
     background: #d00d4f;
     border-radius: 2.17px;
+    animation: progressAnimation 5s ease-in-out forwards; 
   }
+  
+  @keyframes progressAnimation {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  
   
   .logo-container {
     width: 350px;

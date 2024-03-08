@@ -3,6 +3,7 @@ import Facebook from "../common/Links";
 import BackArrow from "../icons/Backicon";
 import Circle from "../../images/circle.png";
 import Check from "../../images/check.png";
+import { toast } from "react-toastify";
 import api from "../../api";
 import { Link, useNavigate } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.css";
@@ -27,38 +28,53 @@ const Signup = () => {
 
   const validateForm = () => {
     let errors = {};
-
+  
     if (!formData.fname || !formData.lname) {
       errors = { ...errors, name: "Please enter both first and last names." };
     }
-
+  
     if (!formData.email) {
       errors = { ...errors, email: "Please enter your email." };
     }
-
+  
     if (!formData.password) {
       errors = { ...errors, password: "Please enter your password." };
-    } else if (!/(?=.*[a-z])(?=.*[A-Z])/.test(formData.password)) {
-      errors = {
-        ...errors,
-        password: "Password must contain both uppercase and lowercase letters.",
-      };
+    } else {
+      let passwordError = "";
+  
+      if (!/(?=.*[a-z])/.test(formData.password)) {
+        passwordError += "Password must contain at least one small letter. ";
+      }
+      if (!/(?=.*[A-Z])/.test(formData.password)) {
+        passwordError += "Password must contain at least one capital letter. ";
+      }
+      if (!/(?=.*[!@#$%^&*])/.test(formData.password)) {
+        passwordError += "Password must contain at least one symbol (!@#$%^&*). ";
+      }
+  
+      if (passwordError !== "") {
+        errors = { ...errors, password: passwordError.trim() };
+      }
     }
-
+  
     if (!formData.confirm_password || formData.confirm_password !== formData.password) {
       errors = { ...errors, confirm_password: "Passwords do not match." };
     }
-
+  
     setValidationErrors(errors);
-
+  
     return Object.keys(errors).length === 0; // Return true if there are no errors
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Validate the form
     if (!validateForm()) {
+      if (validationErrors.password) {
+        toast.error(validationErrors.password);
+      }
       return;
     }
 
@@ -66,6 +82,7 @@ const Signup = () => {
     api("post", "/register", formData)
       .then((response) => {
         if (response.status === 200) {
+          toast.success("You have successfully logged in");
           navigate("/login");
         }
       })
