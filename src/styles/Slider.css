@@ -2,7 +2,6 @@
   .slider_back {
     width: 100%;
     height: 449px;
-    /* margin-left: 5%; */
   }
   .slide_page {
     width: 90%;
@@ -46,7 +45,7 @@
     width: 30%;
     height: 120px;
     z-index: 100;
-    left: 3%;
+    left: 6%;
     margin-bottom: 12%;
     display: flex;
     justify-content: center;
@@ -77,6 +76,7 @@
     line-height: normal;
   }
   .slide_head span {
+    margin-top: 4%;
     color: #26251c;
     font-family: Poppins;
     font-size: 20px;
@@ -92,17 +92,21 @@
     padding-top: 3%;
     align-items: center;
   }
+
   .slider_heading {
     width: 100%;
   }
-  
+  .slider_headings{
+    display: flex;
+    flex-direction: column;
+  height: 180px;
+  }
   .slider_heading span {
     color: #26251c;
     font-family: Poppins;
     font-size: 20px;
     font-style: normal;
     display: flex;
-    justify-content: center;
     font-weight: 500;
     line-height: normal;
   }
@@ -113,35 +117,51 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    text-decoration-line: strikethrough;
+   display: flex;
+   gap: 2px;
   }
   .Price p {
     color: #5f5f5f;
-
+    display: flex;
     font-family: Poppins;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    gap: 4px;
+  }
+  .old_price{
+    font-size: 14px !important;
   }
   .slide_detail {
     width: 90%;
-    margin-left: 5%;
+    height: 27% !important;
+    overflow-y: scroll;
+    margin-left: 5%; 
+
+  }
+  .slide_detail {
+    width: 90%;
+    height: 27% !important;
+    overflow-y: scroll;
+    margin-top: 0 !important;
+    margin-left: 5%; 
+
   }
 
   .slide_detail p {
     color: #434343;
-display: flex;
-justify-content: center;
+    display: flex;
     font-family: Poppins;
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
     line-height: 22px;
   }
+  
   .slide_icon_button {
     display: flex;
-    margin-top: 2%;
+    margin-top: 4%;
     width: 80%;
     padding-left: 10%;
     align-items: center;
@@ -151,7 +171,6 @@ justify-content: center;
     display: flex;
     width: 207px;
     height: 50px;
-
     justify-content: center;
     align-items: center;
     color: #fff;
@@ -170,8 +189,7 @@ justify-content: center;
     position: relative;
     display: block;
     z-index: 1000; 
-  /* left: 10px; */
-  right: 10px;
+  right: 3px;
   cursor: pointer;
   }
  

@@ -19,6 +19,7 @@ const Profile = ({ setMenu }) => {
   const navigate = useNavigate();
   const [avatar, setAvatar] = useState(false);
   const [termData, setTermData] = useState("");
+  
   const [userData, setUserData] = useState({});
   const handlePencil = () => {
     setAvatar(!avatar);

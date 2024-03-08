@@ -9,7 +9,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-    bottom: 33%;
+    bottom: 3%;
   }
   .about_heading {
     width: 90%;
