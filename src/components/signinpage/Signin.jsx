@@ -11,17 +11,19 @@ import "@fortawesome/fontawesome-free/css/all.css";
 const Signin = () => {
   const navigate = useNavigate();
   const updateStore = UpdateStore();
-
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  console.log("🚀 ~ Signin ~ formData:", formData.email);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -54,13 +56,6 @@ const Signin = () => {
         return toast.error("Incorrect Password");
       });
   };
-
-  useEffect(() => {
-    setFormData({
-      email: "",
-      password: "",
-    });
-  }, []);
 
   return (
     <div className="sigin_form">

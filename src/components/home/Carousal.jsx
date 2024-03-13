@@ -41,6 +41,7 @@ const Carousal = ({ sliderData, setSliderData }) => {
   const [reel, setReel] = useState(false);
   const [map, setMap] = useState(false);
   const { user } = Store();
+  console.log("🚀 ~ Carousal ~ user:", user.id);
   const [winner, setWinner] = useState(false);
   const [reelMedia, setReelMedia] = useState({
     media: null,
@@ -155,8 +156,10 @@ const Carousal = ({ sliderData, setSliderData }) => {
                         {slide?.new_price !== null &&
                         slide?.old_price !== null ? (
                           <>
-                            <span className="old_price">{slide.new_price}$</span>
-                            <span >{slide.old_price}$</span>
+                            <span className="old_price">
+                              {slide.new_price}$
+                            </span>
+                            <span>{slide.old_price}$</span>
                           </>
                         ) : slide?.new_price !== null ? (
                           <span>{slide.new_price}</span>

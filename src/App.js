@@ -4,13 +4,12 @@ import "./App.css";
 import Router from "react-easy-router";
 import { useLocation } from "react-router-dom";
 import tennerRoutes from "./routes/route";
-import Signin from "./components/signinpage/Signin";
+// import Signin from "./components/signinpage/Signin";
 import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 import "react-toastify/dist/ReactToastify.css";
-// import { UpdateStore, setStore } from "./StoreContext";
 function App() {
   const { pathname } = useLocation();
   console.log("🚀 ~ App ~ pathname:", pathname);
@@ -22,23 +21,23 @@ function App() {
       return { success: true, role: "user" };
     } else {
       console.log("got here ?");
-      if(pathname === "/login"){
-
+      if (pathname === "/login") {
         nav("/login");
-      }
-      else if(pathname === "/"){
+      } else if (pathname === "/") {
         nav("/login");
-      }
-      else if(pathname === "/singup"){
-
-        nav("/singup");
-      }
-      else if(pathname === "/forget"){
-
+      } else if (pathname === "/signup") {
+        nav("/signup");
+      } else if (pathname === "/forget") {
         nav("/forget");
-      }
-      else if(pathname !== "/forget" || pathname !== "/singup" || pathname !== "/login" || pathname !== "/" ){
-
+      } else if (pathname === "/main") {
+        nav("/main");
+      } else if (
+        pathname !== "/forget" ||
+        pathname !== "/signup" ||
+        pathname !== "/login" ||
+        pathname !== "/main" ||
+        pathname !== "/"
+      ) {
         nav("/login");
       }
       return false;
@@ -55,9 +54,9 @@ function App() {
     // );
     checkAuth();
   }, [pathname]);
-  {
-    pathname !== "/" && pathname !== "/login" && <Signin />;
-  }
+  // {
+  //   pathname !== "/" && pathname !== "/login" && <Signin />;
+  // }
 
   return (
     <>

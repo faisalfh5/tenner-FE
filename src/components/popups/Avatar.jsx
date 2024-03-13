@@ -1,41 +1,29 @@
 import React, { useState } from "react";
-import Avatar1 from "../../images/avatar1.svg";
-import Avatar2 from "../../images/avatar2.svg";
-import Avatar3 from "../../images/avatar3.svg";
+// import Avatar1 from "../../images/avatar1.svg";
+// import Avatar2 from "../../images/avatar2.svg";
+// import Avatar3 from "../../images/avatar3.svg";
 import { toast } from "react-toastify";
 
 import Cross from "../../images/cross.png";
 import api from "../../api";
 import { Store } from "../../StoreContext";
 
-const Avatar = ({ setAvatar }) => {
+const Avatar = ({ setAvatar, avatarImages }) => {
   const { user } = Store();
   console.log("🚀 ~ Avatar ~ user:", user.id);
-  const avatarImages = [Avatar1, Avatar2, Avatar3];
+  // const avatarImages = [Avatar1, Avatar2, Avatar3];
 
-  const [selectedImageFilename, setSelectedImageFilename] = useState(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+  console.log("🚀 ~ Avatar ~ selectedImageIndex:", selectedImageIndex);
 
-  const handleImageChange = (imagePath) => {
-    const parts = imagePath.split(".");
-    const uniqueIdentifier = parts[1];
-    setSelectedImageFilename(uniqueIdentifier);
+  const handleImageChange = (imageIndex) => {
+    setSelectedImageIndex(imageIndex);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData();
 
-    console.log("🚀 ~ handleSubmit ~ user.id:", user.id);
-
-    console.log("🚀 ~ Avatar ~ selectedImageFilename:", selectedImageFilename);
-
-    formData.append("user_id", user.id);
-
-    formData.append("photo", selectedImageFilename);
-
-    console.log("🚀 ~ handleSubmit ~ formData:", formData);
-
-    api("post", "/profile/update_profile", formData)
+    api("get", `/UpdateuserAvatar/${user.id}/${selectedImageIndex}`)
       .then((response) => {
         if (response.status === 200) {
           toast.success("Image Updated Successfully");
@@ -70,12 +58,10 @@ const Avatar = ({ setAvatar }) => {
               key={index}
               src={avatar}
               alt={`Avatar ${index + 1}`}
-              onClick={() => handleImageChange(avatar)}
+              onClick={() => handleImageChange(index)}
               style={{
                 border:
-                  selectedImageFilename === avatar.split(".")[1]
-                    ? "2px solid blue"
-                    : "none",
+                  selectedImageIndex === index ? "2px solid blue" : "none",
               }}
             />
           ))}

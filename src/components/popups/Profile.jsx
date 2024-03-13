@@ -11,6 +11,9 @@ import Share from "../../images/share.svg";
 import Pencile from "../../images/pencilback.svg";
 import Pencil from "../../images//pencil.png";
 import api from "../../api";
+import Avatar1 from "../../images/avatar1.svg";
+import Avatar2 from "../../images/avatar2.svg";
+import Avatar3 from "../../images/avatar3.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { Store } from "../../StoreContext";
 
@@ -19,16 +22,14 @@ const Profile = ({ setMenu }) => {
   const navigate = useNavigate();
   const [avatar, setAvatar] = useState(false);
   const [termData, setTermData] = useState("");
-  
+  const avatarImages = [Avatar1, Avatar2, Avatar3];
+
   const [userData, setUserData] = useState({});
+  console.log("🚀 ~ Profile ~ userData:", userData.user_avatar);
   const handlePencil = () => {
     setAvatar(!avatar);
     document.body.style.overflow = "hidden";
   };
-  console.log(
-    "🚀 ~ Profile ~ userData?.user_profile_path + userData?.data?.photo:",
-    userData?.user_profile_path + userData?.data?.photo
-  );
   const [term, setTerm] = useState(false);
   const [contact, setContact] = useState(false);
   const handleContact = () => {
@@ -56,17 +57,17 @@ const Profile = ({ setMenu }) => {
     navigate("/login");
   };
   useEffect(() => {
-    api("post", "/profile/user", { user_id: user.id })
+    api("get", `/GetuserAvatar/${user.id}`)
       .then((response) => {
         setUserData(response.data);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
-  }, []);
+  }, [!avatar]);
   return (
     <>
-      {avatar && <Avatar setAvatar={setAvatar} />}
+      {avatar && <Avatar setAvatar={setAvatar} avatarImages={avatarImages} />}
       {avatar && (
         <div
           className="side_bar_backgrounds"
@@ -110,10 +111,7 @@ const Profile = ({ setMenu }) => {
         <div className="profile_img_detail">
           <div className="profile_img">
             <div className="avatar_first">
-              <img
-                src={userData?.user_profile_path + userData?.data?.photo}
-                alt=""
-              />
+              <img src={avatarImages[userData.user_avatar]} alt="" />
             </div>
             <div className="avatar_top">
               <div className="avatar_top_inner1">
@@ -154,7 +152,14 @@ const Profile = ({ setMenu }) => {
           <div className="profile_paragraph">
             <p>Help us spread the word and pass on savings to your friends</p>
           </div>
-          <Link to="/login" className="linkRedirect">
+          <Link
+            to="/login"
+            className="linkRedirect"
+            onClick={() => {
+              localStorage.removeItem("token");
+              toast.success("Successfully logged out.");
+            }}
+          >
             <div className="profile_button">
               <button>
                 <img src={Share} alt="" />
